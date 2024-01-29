@@ -1,0 +1,28 @@
+import discord
+from discord.ext import commands
+from pynput.mouse import Button, Controller  
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix='>', intents=intents)
+mouse = Controller()
+bot = commands.Bot(command_prefix='!', intents=intents)
+import webbrowser
+@bot.command()
+async def W_key_pressed(ctx):
+    mouse.move(0, -20)
+
+@bot.event
+async def on_ready():
+    print(f'Bot connected as {bot.user.name}')
+
+@bot.command(name='openlink', aliases=['ol'])
+async def open_link(ctx, link):
+    # Check if the message author is allowed to open links
+    if ctx.author.guild_permissions.manage_messages:
+        print(f"Opening link: {link}")
+        # Open the link in the default web browser
+        while 0 == False:
+            webbrowser.open(link)
+
+bot.run('ABC')
+
