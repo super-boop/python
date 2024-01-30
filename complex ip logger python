@@ -97,7 +97,7 @@ if __name__ == "__main__":
     else:
         print("Failed to retrieve IP address.")
 while 1 == 1:
-    time.sleep(3)
+    time.sleep(1)
 
 
     def get_ip_address2():
