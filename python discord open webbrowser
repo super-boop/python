@@ -1,15 +1,11 @@
 import discord
 from discord.ext import commands
-from pynput.mouse import Button, Controller  
+
 intents = discord.Intents.default()
 intents.message_content = True
-bot = commands.Bot(command_prefix='>', intents=intents)
-mouse = Controller()
+
 bot = commands.Bot(command_prefix='!', intents=intents)
 import webbrowser
-@bot.command()
-async def W_key_pressed(ctx):
-    mouse.move(0, -20)
 
 @bot.event
 async def on_ready():
