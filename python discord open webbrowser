@@ -22,4 +22,3 @@ async def open_link(ctx, link):
 
 bot.run('ABC')
 
- 
